@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Directory</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+    }
+
+    .header {
+      text-align: center;
+      color: #333;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .card, .profile-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+      word-wrap: break-word;
+      width: 100%;
+    }
+
+    .card:hover, .profile-card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h2, .profile-card h1 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 8px 0;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    a {
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #4a90e2;
+      color: white;
+      padding: 10px 14px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #357abd;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="header">📘 Student Directory</h1>
+  <div class="card-container" id="studentCards"></div>
+
+  <script>
+    const students = [
+      {
+        name: "Abhishek kumar",
+        cage: "K2",
+        github: "https://github.com/abhi11332",
+        leetcode: "https://leetcode.com/u/abhi5678_/",
+      },
+      {
+        name: "Divesh Kumar Nirala",
+        cage: "K2",
+        github: " https://github.com/kumarnirala2k",
+        leetcode: "https://leetcode.com/u/Divesh_Kumar/",
+      },
+      {
+        name: "Vickey Mehta",
+        cage: "K2",
+        github: "https://github.com/mehta42568",
+        leetcode: "https://leetcode.com/u/vickymehta434/",
+      },
+     {
+        name: "Rohit Sharma",
+        cage: "K2",
+        github: "https://github.com/virus-maker",
+        leetcode: "https://leetcode.com/u/Rohitcoder1/",
+      },
+      {
+        name: "Deepak Prakash",
+        cage: "K2",
+        github: "https://github.com/deepakprakashkt",
+        leetcode: "https://leetcode.com/u/deepak_kumar99/",
+      },
+    ];
+
+    const container = document.getElementById("studentCards");
+    students.forEach((s) => {
+      container.innerHTML += `
+        <div class="card">
+          <h2>${s.name}</h2>
+          <p><strong>Cage:</strong> ${s.cage}</p>
+          <p><a href="${s.github}">GitHub 🔗</a></p>
+          <p><a href="${s.leetcode}">LeetCode 🔗</a></p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
